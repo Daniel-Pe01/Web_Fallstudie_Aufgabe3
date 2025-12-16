@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kleiderspenden</title>
+    <meta name="description" content="Kleiderspenden — Plattform zum Spenden und Abgeben von Kleidung" />
+    <style>
+        :root{
+            --bg:#f7f9fb; --card:#fff; --accent:#2b7a78; --muted:#6b7280;
+            --radius:10px; --max:1100px; --gap:18px;
+            font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0; background:linear-gradient(180deg,#eef7f7 0%,var(--bg) 40%);
+            color:#072227; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+            padding:28px;
+        }
+        .wrap{max-width:var(--max); margin:0 auto; display:grid; gap:var(--gap);}
+        header{display:flex; align-items:center; justify-content:space-between; gap:12px}
+        .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
+        .logo{
+            width:48px; height:48px; border-radius:10px; background:var(--accent); display:grid; place-items:center;
+            color:#fff; font-weight:700; font-size:18px;
+        }
+        nav a{margin-left:14px; color:var(--muted); text-decoration:none; font-weight:600}
+        main{display:grid; gap:22px}
+        .hero{
+            background:linear-gradient(90deg, rgba(43,122,120,0.07), rgba(43,122,120,0.03));
+            padding:28px; border-radius:var(--radius); display:flex; gap:20px; align-items:center;
+        }
+        .hero .copy{flex:1}
+        h1{margin:0 0 8px 0; font-size:28px}
+        p.lead{margin:0; color:var(--muted)}
+        .cta{margin-top:14px; display:flex; gap:12px}
+        .btn{
+            background:var(--accent); color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; border:none;
+            cursor:pointer; font-weight:700;
+        }
+        .btn.secondary{background:#fff; color:var(--accent); border:1px solid rgba(43,122,120,0.15)}
+        .grid{display:grid; grid-template-columns:1fr 360px; gap:20px}
+        .card{background:var(--card); border-radius:12px; padding:16px; box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+        .steps{display:grid; gap:12px}
+        .step{display:flex; gap:12px; align-items:flex-start}
+        .step .num{min-width:36px; height:36px; border-radius:10px; background:#e9f7f7; color:var(--accent); display:grid; place-items:center; font-weight:700}
+        form label{display:block; font-size:13px; color:var(--muted); margin-bottom:6px}
+        input[type="text"], input[type="email"], input[type="date"], select, textarea{
+            width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6eef0; background:#fbfeff;
+            font-size:14px; color:#072227;
+        }
+        .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+        .muted{font-size:13px; color:var(--muted)}
+        footer{display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:13px; margin-top:8px}
+        @media (max-width:880px){
+            .grid{grid-template-columns:1fr}
+            .row{grid-template-columns:1fr}
+            header{flex-direction:column; align-items:flex-start; gap:12px}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <a class="brand" href="#">
+                <div class="logo" aria-hidden>KS</div>
+                <div>
+                    <div style="font-weight:800">Kleiderspenden</div>
+                    <div class="muted" style="font-size:13px">Gebrauchte Kleidung sinnvoll weitergeben</div>
+                </div>
+            </a>
+            <nav aria-label="Hauptnavigation">
+                <a href="#how">Wie es funktioniert</a>
+                <a href="#donate">Spenden</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="copy">
+                    <h1 id="hero-title">Kleiderspenden — Kleidung weitergeben, Menschen helfen</h1>
+                    <p class="lead">Einfach spenden oder abgeben: Finde Sammelstellen, organisiere Abholung oder unterstütze lokale Einrichtungen mit deiner Kleidung.</p>
+                    <div class="cta">
+                        <button class="btn" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Jetzt spenden</button>
+                        <a class="btn secondary" href="#how">Mehr erfahren</a>
+                    </div>
+                </div>
+                <div style="width:260px">
+                    <div class="card" role="region" aria-label="Schnellinfo">
+                        <strong>Warum spenden?</strong>
+                        <p class="muted" style="margin-top:8px">Reduziere Abfall, unterstütze Bedürftige und gib gut erhaltene Kleidung ein zweites Leben.</p>
+                        <ul class="muted" style="margin:10px 0 0 18px; padding:0">
+                            <li>Einfach & sicher</li>
+                            <li>Pickup oder Abgabe</li>
+                            <li>Nachhaltig</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid">
+                <section class="card" id="how" aria-labelledby="how-title">
+                    <h2 id="how-title">Wie es funktioniert</h2>
+                    <div class="steps" style="margin-top:12px">
+                        <div class="step">
+                            <div class="num">1</div>
+                            <div>
+                                <strong>Ausmisten</strong>
+                                <div class="muted">Saubere, trockene und intakte Kleidung sammeln.</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="num">2</div>
+                            <div>
+                                <strong>Verpacken</strong>
+                                <div class="muted">In Kartons oder Säcken: kurz beschriften (z.B. Größe, Saison).</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="num">3</div>
+                            <div>
+                                <strong>Abgeben oder abholen lassen</strong>
+                                <div class="muted">Wähle eine Sammelstelle oder bestelle eine Abholung.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="margin:18px 0; border:none; height:1px; background:#eef6f6">
+
+                    <h3 style="margin:0 0 8px 0">Tipps</h3>
+                    <ul class="muted" style="margin:6px 0 0 18px">
+                        <li>Vor dem Spenden Taschen prüfen (keine feuchten/verschmutzten Teile)</li>
+                        <li>Kinderkleidung und Schuhe bitte paarweise bündeln</li>
+                        <li>Spendenbescheinigung auf Anfrage</li>
+                    </ul>
+                </section>
+
+                <aside class="card" id="donate" aria-labelledby="donate-title">
+                    <h2 id="donate-title">Spende melden</h2>
+                    <form id="donationForm" onsubmit="handleSubmit(event)" novalidate>
+                        <div style="margin-bottom:12px">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" placeholder="Vor- und Nachname" required />
+                        </div>
+
+                        <div style="margin-bottom:12px">
+                            <label for="email">E‑Mail</label>
+                            <input id="email" name="email" type="email" placeholder="name@example.com" required />
+                        </div>
+
+                        <div style="margin-bottom:12px">
+                            <label for="location">Ort / PLZ</label>
+                            <input id="location" name="location" type="text" placeholder="z. B. Berlin, 10115" required />
+                        </div>
+
+                        <div class="row" style="margin-bottom:12px">
+                            <div>
+                                <label for="type">Art der Kleidung</label>
+                                <select id="type" name="type">
+                                    <option>Gemischt</option>
+                                    <option>Damen</option>
+                                    <option>Herren</option>
+                                    <option>Kinder</option>
+                                    <option>Wintersachen</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="quantity">Ungefähr Anzahl</label>
+                                <input id="quantity" name="quantity" type="text" placeholder="z. B. 10 Teile" />
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom:12px">
+                            <label>Abholung oder Abgabe</label>
+                            <div style="display:flex; gap:8px; margin-top:6px">
+                                <label style="display:inline-flex; align-items:center; gap:6px"><input type="radio" name="method" value="pickup" checked /> Abholung</label>
+                                <label style="display:inline-flex; align-items:center; gap:6px"><input type="radio" name="method" value="dropoff" /> Abgabe</label>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom:12px">
+                            <label for="date">Gewünschtes Datum</label>
+                            <input id="date" name="date" type="date" />
+                        </div>
+
+                        <div style="margin-bottom:12px">
+                            <label for="notes">Bemerkungen</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="z. B. besondere Hinweise zur Anfahrt"></textarea>
+                        </div>
+
+                        <button class="btn" type="submit" style="width:100%">Spende absenden</button>
+
+                        <p id="formMessage" class="muted" style="margin-top:12px; display:none"></p>
+                    </form>
+                </aside>
+            </div>
+
+            <section class="card" id="contact" aria-labelledby="contact-title">
+                <h2 id="contact-title">Kontakt</h2>
+                <p class="muted" style="margin-top:8px">Fragen oder Zusammenarbeit? Schreibe uns eine Nachricht.</p>
+                <p style="margin-top:12px"><strong>Email:</strong> <a href="mailto:info@kleiderspenden.example">info@kleiderspenden.example</a></p>
+            </section>
+        </main>
+
+        <footer>
+            <div>&copy; <span id="year"></span> Kleiderspenden</div>
+            <div class="muted">Made for local communities</div>
+        </footer>
+    </div>
+
+    <script>
+        // Small client-side enhancements
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function handleSubmit(e){
+            e.preventDefault();
+            const form = e.target;
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            if(!name || !email){
+                showMessage('Bitte Name und E‑Mail angeben.', true);
+                return;
+            }
+            // Simulate async send
+            showMessage('Sende Spende...');
+
+            setTimeout(() => {
+                form.reset();
+                showMessage('Danke! Deine Spende wurde übermittelt. Wir kontaktieren dich per E‑Mail.', false, 7000);
+            }, 900);
+        }
+
+        function showMessage(msg, isError = false, timeout = 5000){
+            const el = document.getElementById('formMessage');
+            el.style.display = 'block';
+            el.textContent = msg;
+            el.style.color = isError ? '#c23b3b' : 'var(--muted)';
+            if(timeout) setTimeout(()=> el.style.display='none', timeout);
+        }
+    </script>
+</body>
+</html>
